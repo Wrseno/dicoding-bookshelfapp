@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicoding Bookshelf Apps</title>
+    <link rel="stylesheet" href="asset/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1>Dicoding Bookshelf Apps</h1>
+        </div>
+    </header>
+
+<main class="wrapper">
+    <section class="input-group wrapper">
+            <h2>Masukkan Buku Baru</h2>
+            <form action="" id="inputBook" class="form">
+                <div class="input">
+                    <label for="inputBookTitle">Judul Buku : </label>
+                    <input name="title" type="text" id="inputBookTitle" required>
+                </div>
+
+                <div class="input">
+                    <label for="inputBookAuthor">Penulis Buku : </label>
+                    <input name="author" type="text" id="inputBookAuthor" required>
+                </div>
+
+                <div class="input">
+                    <label for="inputBookYear">Tahun Terbit : </label>
+                    <input name="year" type="number" id="inputBookYear" required>
+                </div>
+
+                <div class="input-inline">
+                    <label for="finishRead">Selesai Dibaca</label>
+                    <input type="checkbox" id="finishRead">
+                </div>
+
+                <button type="submit" id="bookSubmit" class="btnSubmit">
+                    Masukkan ke Rak
+                    <span>Belum selesai dibaca</span>
+                </button>
+            </form>
+    </section>
+
+    <section class="book-shelf wrapper">
+        <h2>Belum selesai dibaca</h2>
+        
+        <div id="incompleteBookshelfList" class="book_list">
+        </div>
+    </section>
+
+    <section class="book-shelf wrapper">
+        <h2>Selesai dibaca</h2>
+        
+        <div id="completeBookshelfList" class="book_list">
+        </div>
+    </section>
+</main>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="asset/script.js"></script>
+    <script src="asset/switalert.js"></script>
+</body>
+</html>
