@@ -86,8 +86,19 @@ function makebookItems(bookObject) {
     buttonDelete.appendChild(textDelete);
     buttonDelete.setAttribute("id", `book-${bookObject.id}`);
 
-    buttonDelete.addEventListener("click", function () {
-      removeBookFromCompleted(bookObject.id);
+    buttonDelete.addEventListener("click", async function () {
+      const result = await Swal.fire({
+        title: "Yakin?",
+        text: `Apakah kamu yakin menghapus buku "${bookObject.title}"`,
+        icon: "question",
+        confirmButtonText: "Ya",
+        showCancelButton: true,
+        cancelButtonText: "Batal",
+      });
+
+      if (result.isConfirmed) {
+        removeBookFromCompleted(bookObject.id);
+      }
     });
 
     action.append(buttonUnread, buttonDelete);
