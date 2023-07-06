@@ -3,10 +3,21 @@ const RENDER_EVENT = "render-book";
 
 document.addEventListener("DOMContentLoaded", function () {
   const submitForm = document.getElementById("inputBook");
-  submitForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+  submitForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const result = await Swal.fire({
+      position: "top-center",
+      title: "Berhasil",
+      text: "Buku berhasil disimpan di rak",
+      icon: "success",
+      timer: 2000,
+      showConfirmButton: false,
+    });
+
     addBook();
   });
+
   if (isStorageExist()) {
     loadDataFromStorage();
   }
@@ -96,9 +107,7 @@ function makebookItems(bookObject) {
         cancelButtonText: "Batal",
       });
 
-      if (result.isConfirmed) {
-        removeBookFromCompleted(bookObject.id);
-      }
+      if (result.isConfirmed) removeBookFromCompleted(bookObject.id);
     });
 
     action.append(buttonUnread, buttonDelete);
